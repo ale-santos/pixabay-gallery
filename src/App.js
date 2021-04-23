@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { GlobalProvider } from './context/GlobaState'
+import Navbar from './components/NavBar';
+import PagePhoto from './pages/PagePhoto';
+import PageVideo from './pages/PageVideo';
+import PageContact from './pages/PageContact';
+import PagePhotoSingle from './pages/PagePhotoSingle';
+import { PageCart } from './pages/PageCart';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <GlobalProvider>
+            <Navbar />
+            <Switch >
+                <Route exact path={
+                    ["/", "/fotos"]} >
+                    <PagePhoto />
+                </Route>
+                <Route path="/photo/:id">
+                    <PagePhotoSingle />
+                </Route>
+                <Route path="/videos" >
+                    <PageVideo />
+                </Route>
+                <Route path="/contato" >
+                    <PageContact />
+                </Route>
+                <Route path="/cart" >
+                    <PageCart />
+                </Route>
+            </Switch>
+        </GlobalProvider>
+    );
 }
 
 export default App;
