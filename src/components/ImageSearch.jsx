@@ -45,8 +45,8 @@ const ImageSearch = ({ search, searchForm }) => {
     return (
         <div className='max-w-4xl rounded overflow-hidden mb-10 mx-auto'>
             <form onSubmit={handleOnSubmit} className="w-full max-w-4xl">
-                <div className="flex justify-center items-end border-b-2 border-red-500 py-2">
-                    <label className="w-1/3 block mt-4">
+                <div className="flex justify-center items-end flex-wrap border-b-2 border-red-500 py-2">
+                    <label className="w-1/3 mt-4">
                         <input onChange={e => setText(e.target.value)}
                             value={text}
                             className="bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"

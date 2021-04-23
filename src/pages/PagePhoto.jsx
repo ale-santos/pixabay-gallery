@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from 'axios';
 
@@ -27,9 +27,9 @@ const PagePhoto = () => {
     useEffect(() => {
         const fetchPhotos = async () => {
             setIsLoading(true);
-            const res = await axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${search.term}&image_type=${search.imageType}&category=${search.category}&pretty=true&page=${search.currentPage}&per_page=${search.perPage}`);
-            setImages(res.data.hits);
-            setPageCount(res.data.totalHits);
+            const { data } = await axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${search.term}&image_type=${search.imageType}&category=${search.category}&pretty=true&page=${search.currentPage}&per_page=${search.perPage}`);
+            setImages(data.hits);
+            setPageCount(data.totalHits);
             setIsLoading(false);
             // console.log(res.data);
         };

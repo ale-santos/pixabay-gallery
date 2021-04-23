@@ -1,4 +1,4 @@
-export default (state, action) => {
+export default function AppReducer(state, action){
     switch (action.type) {
         case 'REMOVE_CART':
             return {

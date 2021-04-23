@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { GlobalContext } from '../context/GlobaState';
 
 import { Link } from 'react-router-dom';
-import { FaShoppingBag, FaHeartbeat } from 'react-icons/fa';
+import { FaHeartbeat } from 'react-icons/fa';
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -26,7 +26,7 @@ export default function Navbar({ fixed }) {
 
   useEffect(() => {
     setItems(shoppingCart.length);
-  });
+  },[shoppingCart]);
 
   return (
     <>
