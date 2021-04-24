@@ -3,7 +3,7 @@ import AppReducer from './AppReducer'
 
 //Initial state 
 const initialState = {
-    shoppingCart: []
+    shoppingCart: [],
 };
 
 //Create context
@@ -33,15 +33,12 @@ export const GlobalProvider = ({ children }) => {
         });
     }
 
-    function handleButtonFavorites(id) {
-        if (state.shoppingCart.filter(item => item.id === id).length === 0) {
-            const newItem = {
-                id: id,
-                qty: 1
-            }
+    function handleButtonFavorites(image) {
+        if (state.shoppingCart.filter(item => item.id === image.id).length === 0) {
+            const newItem = image
             addCart(newItem);
         } else {
-            removeCart(id);
+            removeCart(image.id);
         }
     }
 

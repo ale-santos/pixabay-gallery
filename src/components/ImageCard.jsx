@@ -13,7 +13,7 @@ export const ImageCard = ({ image }) => {
   return (
     <article className='rounded overflow-hidden shadow-sm hover:shadow-xl relative bg-indigo-100'>
       <div className={`absolute right-3 top-3 ${checkInCart}`}>
-        <button onClick={() => handleButtonFavorites(image.id)}
+        <button onClick={() => handleButtonFavorites(image)}
           className={`outline-none ring-0 focus:outline-none`}>
           <FaHeart size={25} />
         </button>

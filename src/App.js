@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobaState'
 import Navbar from './components/NavBar';
-import PagePhoto from './pages/PagePhoto';
+import { PagePhoto } from './pages/PagePhoto';
 import PageVideo from './pages/PageVideo';
 import PageContact from './pages/PageContact';
 import PagePhotoSingle from './pages/PagePhotoSingle';

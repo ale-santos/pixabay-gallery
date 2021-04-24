@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import axios from 'axios';
 
 import { ImageCard } from '../components/ImageCard';
@@ -7,11 +6,9 @@ import ImageSearch from '../components/ImageSearch';
 import Loading from '../components/Loading';
 import ReactPaginate from 'react-paginate';
 
-
 import '../styles/pagination.css';
 
-const PagePhoto = () => {
-
+export const PagePhoto = () => {
     const [images, setImages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState({
@@ -22,7 +19,6 @@ const PagePhoto = () => {
         currentPage: 1
     });
     const [pageCount, setPageCount] = useState(0);
-
 
     useEffect(() => {
         const fetchPhotos = async () => {
@@ -44,7 +40,7 @@ const PagePhoto = () => {
     return (
         <section className="pt-8">
             <header className="max-w-7xl mx-auto pt-24 pb-8 lg:pt-0 px-6 lg:px-8">
-                <h1 className="w-full text-center text-2xl">PixaBay Photo Search {search.currentPage }</h1>
+                <h1 className="w-full text-center text-2xl">PixaBay Photo Search {search.currentPage}</h1>
             </header>
             <div className="max-w-7xl mx-auto lg:pt-0 px-6 lg:px-8">
                 {isLoading ?
@@ -82,6 +78,3 @@ const PagePhoto = () => {
 }
 
 
-
-
-export default PagePhoto;
