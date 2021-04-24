@@ -4,31 +4,18 @@ import { GlobalContext } from '../context/GlobaState';
 import { Link } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 
-
 export const ImageCard = ({ image }) => {
 
-  const { shoppingCart, addCart, removeCart } = useContext(GlobalContext);
+  const { shoppingCart, handleButtonFavorites } = useContext(GlobalContext);
 
-  const handleButtonFavorites = (id) => {
-    if (shoppingCart.filter(item => item.id === image.id).length === 0) {
-      const newItem = {
-        id: id,
-        qty: 1
-      }
-      addCart(newItem);
-    } else {
-      removeCart(id);
-    }
-  };
-
-  const checkInCart = shoppingCart.filter(item => item.id === image.id).length > 0 ? 'text-red-900' : 'text-red-200 hover:text-red-900';
+  const checkInCart = shoppingCart.filter(item => item.id === image.id).length > 0 ? 'text-red-900 animate-bounce' : 'text-red-200 hover:text-red-900';
 
   return (
-    <div className='rounded overflow-hidden shadow-sm hover:shadow-xl relative'>
-      <div className={`absolute right-2 top-2 ${checkInCart}`}>
+    <article className='rounded overflow-hidden shadow-sm hover:shadow-xl relative bg-indigo-100'>
+      <div className={`absolute right-3 top-3 ${checkInCart}`}>
         <button onClick={() => handleButtonFavorites(image.id)}
-          className={`outline-none ring-0 focus:outline-none `}>
-          <FaHeart size={20} />
+          className={`outline-none ring-0 focus:outline-none`}>
+          <FaHeart size={25} />
         </button>
       </div>
       <Link
@@ -36,7 +23,7 @@ export const ImageCard = ({ image }) => {
           pathname: `/photo/${image.id}`
         }}
       >
-        <img src={image.webformatURL} alt="" className="w-full" />
+        <img src={image.webformatURL} alt={image.title} className="w-full" />
       </Link>
 
       <div className="px-6 pt-4 pb-5">
@@ -50,7 +37,7 @@ export const ImageCard = ({ image }) => {
         </ul>
       </div>
 
-    </div>
+    </article>
   )
 }
 

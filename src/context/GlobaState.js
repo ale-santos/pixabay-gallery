@@ -33,11 +33,24 @@ export const GlobalProvider = ({ children }) => {
         });
     }
 
+    function handleButtonFavorites(id) {
+        if (state.shoppingCart.filter(item => item.id === id).length === 0) {
+            const newItem = {
+                id: id,
+                qty: 1
+            }
+            addCart(newItem);
+        } else {
+            removeCart(id);
+        }
+    }
+
     return (
         <GlobalContext.Provider value={{
             shoppingCart: state.shoppingCart,
             addCart,
-            removeCart
+            removeCart,
+            handleButtonFavorites
         }}>
             {children}
         </GlobalContext.Provider>

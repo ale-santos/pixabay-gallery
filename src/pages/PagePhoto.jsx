@@ -18,7 +18,7 @@ const PagePhoto = () => {
         term: '',
         imageType: 'all',
         category: '',
-        perPage: 10,
+        perPage: 12,
         currentPage: 1
     });
     const [pageCount, setPageCount] = useState(0);
@@ -42,10 +42,10 @@ const PagePhoto = () => {
     };
 
     return (
-        <>
-            <div className="max-w-7xl mx-auto pt-24 pb-8 lg:pt-0 px-6 lg:px-8">
-                <h1 className="w-full text-center text-2xl">PixaBay Photo Search</h1>
-            </div>
+        <section className="pt-8">
+            <header className="max-w-7xl mx-auto pt-24 pb-8 lg:pt-0 px-6 lg:px-8">
+                <h1 className="w-full text-center text-2xl">PixaBay Photo Search {search.currentPage }</h1>
+            </header>
             <div className="max-w-7xl mx-auto lg:pt-0 px-6 lg:px-8">
                 {isLoading ?
                     <Loading />
@@ -77,7 +77,7 @@ const PagePhoto = () => {
                         activeClassName={"active"} />
                 </div>
             </div>
-        </>
+        </section>
     )
 }
 

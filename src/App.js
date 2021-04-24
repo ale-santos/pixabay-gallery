@@ -6,30 +6,33 @@ import PageVideo from './pages/PageVideo';
 import PageContact from './pages/PageContact';
 import PagePhotoSingle from './pages/PagePhotoSingle';
 import { PageCart } from './pages/PageCart';
-
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     return (
         <GlobalProvider>
-            <Navbar />
-            <Switch >
-                <Route exact path={
-                    ["/", "/fotos"]} >
-                    <PagePhoto />
-                </Route>
-                <Route path="/photo/:id">
-                    <PagePhotoSingle />
-                </Route>
-                <Route path="/videos" >
-                    <PageVideo />
-                </Route>
-                <Route path="/contato" >
-                    <PageContact />
-                </Route>
-                <Route path="/cart" >
-                    <PageCart />
-                </Route>
-            </Switch>
+            <main className="bg-indigo-50 h-full">
+                <ScrollToTop />
+                <Navbar />
+                <Switch >
+                    <Route exact path={
+                        ["/", "/fotos"]} >
+                        <PagePhoto />
+                    </Route>
+                    <Route path="/photo/:id">
+                        <PagePhotoSingle />
+                    </Route>
+                    <Route path="/videos" >
+                        <PageVideo />
+                    </Route>
+                    <Route path="/contato" >
+                        <PageContact />
+                    </Route>
+                    <Route path="/cart" >
+                        <PageCart />
+                    </Route>
+                </Switch>
+            </main>
         </GlobalProvider>
     );
 }

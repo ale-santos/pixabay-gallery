@@ -1,10 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components {
+    body, html {
+        @apply bg-indigo-100;
+    }
     .dropdown:hover .dropdown-menu {
         display: block;
-      }
-
-  }
+    }
+}

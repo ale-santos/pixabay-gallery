@@ -37,7 +37,8 @@ const ImageSearch = ({ search, searchForm }) => {
             options.map(option =>
                 <option key={option.trim()} value={option.trim()}>
                     {option.trim().charAt(0).toUpperCase() + option.trim().slice(1)}
-                </option>)
+                </option>
+            )
         );
     }
 
@@ -83,10 +84,10 @@ const ImageSearch = ({ search, searchForm }) => {
                                 onChange={e => handleChangePerPage(e.target.value)}
                                 value={perPage}
                             >
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
+                                <option value="8">8</option>
+                                <option value="12">12</option>
+                                <option value="24">24</option>
+                                <option value="48">48</option>
                             </select>
                         </label>
                         <button className="flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-red-700 text-sm border-4 text-white py-1 px-4 rounded" type="submit">
