@@ -18,7 +18,7 @@ export const GlobalProvider = ({ children }) => {
         term: '',
         imageType: 'all',
         category: '',
-        perPage: 12,
+        perPage: 8,
         currentPage: 1
     });
 

@@ -5,16 +5,16 @@ import axios from 'axios';
 import { ImageCard } from '../components/ImageCard';
 import ImageSearch from '../components/ImageSearch';
 import Loading from '../components/Loading';
-import ReactPaginate from 'react-paginate';
 
 
 import '../styles/pagination.css';
+import ReactPaginate from "react-paginate";
 
 export const PagePhoto = () => {
     const { search, setSearch } = useContext(GlobalContext);
     const [images, setImages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
+
     const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export const PagePhoto = () => {
 
     const handlePageClick = (e) => {
         const selectedPage = e.selected;
-        setSearch({ ...search, currentPage: selectedPage + 1 })
+        setSearch({ ...search, currentPage: selectedPage + 1})
     };
 
     return (
@@ -55,20 +55,26 @@ export const PagePhoto = () => {
 
                     </div>
                 }
-                <div className="flex justify-center mt-12">
-                    <ReactPaginate
-                        previousLabel={"prev"}
-                        nextLabel={"next"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={pageCount / search.perPage}
-                        marginPagesDisplayed={4}
-                        pageRangeDisplayed={5}
-                        onPageChange={handlePageClick}
-                        containerClassName={"pagination"}
-                        subContainerClassName={"pages pagination"}
-                        activeClassName={"active"} />
-                </div>
+                {!isLoading ?
+                    <div className="flex justify-center mt-12 pb-8">
+                        <ReactPaginate
+                            previousLabel={"prev"}
+                            nextLabel={"next"}
+                            breakLabel={"..."}
+                            breakClassName={"break-me"}
+                            pageCount={pageCount / search.perPage}
+                            marginPagesDisplayed={4}
+                            pageRangeDisplayed={3}
+                            onPageChange={handlePageClick}
+                            containerClassName={"pagination"}
+                            subContainerClassName={"pages pagination"}
+                            activeClassName={"active"} 
+                            forcePage={search.currentPage-1}
+                            />
+                            
+                    </div> 
+                    : ''
+                }
             </div>
         </section>
     )
