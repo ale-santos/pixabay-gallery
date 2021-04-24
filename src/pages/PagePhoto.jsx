@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { GlobalContext } from '../context/GlobaState';
 import axios from 'axios';
 
 import { ImageCard } from '../components/ImageCard';
@@ -6,18 +7,14 @@ import ImageSearch from '../components/ImageSearch';
 import Loading from '../components/Loading';
 import ReactPaginate from 'react-paginate';
 
+
 import '../styles/pagination.css';
 
 export const PagePhoto = () => {
+    const { search, setSearch } = useContext(GlobalContext);
     const [images, setImages] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [search, setSearch] = useState({
-        term: '',
-        imageType: 'all',
-        category: '',
-        perPage: 12,
-        currentPage: 1
-    });
+    
     const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {

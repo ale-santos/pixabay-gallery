@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 import AppReducer from './AppReducer'
 
 //Initial state 
@@ -13,7 +13,15 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
     const localState = JSON.parse(localStorage.getItem("shoppingCart"));
     const [state, dispatch] = useReducer(AppReducer, localState || initialState);
-    
+
+    const [search, setSearch] = useState({
+        term: '',
+        imageType: 'all',
+        category: '',
+        perPage: 12,
+        currentPage: 1
+    });
+
     useEffect(() => {
         localStorage.setItem("shoppingCart", JSON.stringify(state));
       }, [state]);
@@ -42,9 +50,12 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
+    
     return (
         <GlobalContext.Provider value={{
             shoppingCart: state.shoppingCart,
+            search,
+            setSearch,
             addCart,
             removeCart,
             handleButtonFavorites
