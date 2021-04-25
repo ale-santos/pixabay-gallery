@@ -37,7 +37,7 @@ export default function Navbar() {
   }
 
   function handleMobileMenu() {
-    setNavbarOpen(!navbarOpen);
+    setNavbarOpen(!navbarOpen);   
     setSearchMobileOpen(false);
   }
 
