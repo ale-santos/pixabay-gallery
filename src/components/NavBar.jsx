@@ -104,11 +104,10 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to='/'>
-                  <a
+                <Link to='/'
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold 
                     leading-snug text-white hover:opacity-75 hover:bg-indigo-700">
-                    Contact</a>
+                    Contact
                 </Link>
               </li>
               <div className="flex px-3 mt-4 mb-2 lg:mt-0">
