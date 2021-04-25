@@ -39,7 +39,7 @@ export const PagePhoto = () => {
             <header className="max-w-7xl mx-auto pt-16 pb-4 lg:pb-8 lg:pt-0 px-3 lg:px-8">
                 <h1 className="w-full text-center text-2xl">PixaBay Photo Search</h1>
             </header>
-            <div className="max-w-7xl mx-auto pt-4 lg:pt-0 px-3 lg:px-8">
+            <div className="max-w-7xl mx-auto pt-4 lg:pt-0 px-2 lg:px-8">
                 {isLoading ?
                     <Loading />
                     :

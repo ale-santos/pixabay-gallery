@@ -47,7 +47,7 @@ const ImageSearch = ({ search, searchForm, searchMobileOpen, setSearchMobileOpen
         <div className={`${!searchMobileOpen ? 'hidden' : 'block'} lg:block fixed top-16 -right-0 z-10 
             lg:top-0 lg:right-0 lg:relative w-full lg:max-w-4xl mx-auto bg-gray-100 rounded 
             overflow-hidden mb-10 pb-10 shadow-2xl lg:shadow-md`}>
-            <form onSubmit={handleOnSubmit} className="w-full max-w-4xl px-16">
+            <form onSubmit={handleOnSubmit} className="w-full max-w-4xl px-4 lg:px-16">
                 <div className="flex flex-row flex-wrap justify-center items-end border-b-2 border-red-500 py-2">
                     <label className="w-full md:w-1/3 mt-4 mb-3 md:mb-0">
                         <input onChange={e => setText(e.target.value)}
