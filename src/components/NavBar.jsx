@@ -37,7 +37,7 @@ export default function Navbar() {
   }
 
   function handleMobileMenu() {
-    setNavbarOpen(!navbarOpen);   
+    setNavbarOpen(!navbarOpen);
     setSearchMobileOpen(false);
   }
 
@@ -97,17 +97,18 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to='/videos'
+                <Link to='/photos'
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold 
                       leading-snug text-white hover:opacity-75 hover:bg-indigo-700">
                   Videos
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to='/contato'
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold 
-                      leading-snug text-white hover:opacity-75 hover:bg-indigo-700">
-                  Contact
+                <Link to='/'>
+                  <a
+                    className="px-3 py-2 flex items-center text-xs uppercase font-bold 
+                    leading-snug text-white hover:opacity-75 hover:bg-indigo-700">
+                    Contact</a>
                 </Link>
               </li>
               <div className="flex px-3 mt-4 mb-2 lg:mt-0">

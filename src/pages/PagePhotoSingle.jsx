@@ -143,7 +143,7 @@ const PagePhotoSingle = () => {
                                     className="flex-shrink-0 bg-red-500 hover:bg-red-700 
                                         border-red-500 hover:border-red-700 text-sm font-semibold 
                                         border-4 text-white py-2 px-4 rounded">
-                                    Voltar</button>
+                                    back</button>
                             </div>
                         </div>
                         :
