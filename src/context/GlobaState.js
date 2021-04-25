@@ -13,7 +13,6 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
     const localState = JSON.parse(localStorage.getItem("shoppingCart"));
     const [state, dispatch] = useReducer(AppReducer, localState || initialState);
-
     const [search, setSearch] = useState({
         term: '',
         imageType: 'all',
@@ -21,6 +20,9 @@ export const GlobalProvider = ({ children }) => {
         perPage: 8,
         currentPage: 1
     });
+     
+    const [searchMobileOpen, setSearchMobileOpen] = useState(false);
+    const [menuMobileOpen, setMenuMobileOpen] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("shoppingCart", JSON.stringify(state));
@@ -56,6 +58,10 @@ export const GlobalProvider = ({ children }) => {
             shoppingCart: state.shoppingCart,
             search,
             setSearch,
+            searchMobileOpen,
+            setSearchMobileOpen,
+            menuMobileOpen,
+            setMenuMobileOpen,
             addCart,
             removeCart,
             handleButtonFavorites

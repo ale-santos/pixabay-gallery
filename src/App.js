@@ -16,7 +16,7 @@ function App() {
                 <Navbar />
                 <Switch >
                     <Route exact path={
-                        ["/", "/fotos"]} >
+                        ["/", "/photos"]} >
                         <PagePhoto />
                     </Route>
                     <Route path="/photo/:id">
