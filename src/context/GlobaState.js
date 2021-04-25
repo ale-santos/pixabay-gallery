@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useEffect, useState } from 'react';
 import AppReducer from './AppReducer'
 
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import {  useToasts } from 'react-toast-notifications';
 
 //Initial state 
 const initialState = {

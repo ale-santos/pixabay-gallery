@@ -7,7 +7,7 @@ import PageContact from './pages/PageContact';
 import PagePhotoSingle from './pages/PagePhotoSingle';
 import { PageCart } from './pages/PageCart';
 import ScrollToTop from './components/ScrollToTop';
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import { ToastProvider } from 'react-toast-notifications';
 
 function App() {
     return (
