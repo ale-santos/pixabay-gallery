@@ -18,19 +18,17 @@ export const ImageCard = ({ image }) => {
           <FaHeart size={25} />
         </button>
       </div>
-      <Link
-        to={{
-          pathname: `/photo/${image.id}`
-        }}
-      >
+      <Link to={{ pathname: `/photo/${image.id}` }}>
         <img src={image.webformatURL} alt={image.title} className="w-full" />
       </Link>
 
-      <div className="px-6 pt-4 pb-5">
-        <div className="font-semibold text-purple-500 text-lg mb-2 leading-6">
-          Photo by {image.user}
-        </div>
-        <ul>
+      <div className="px-3 lg:px-5 pt-4 pb-3 lg:pb-5">
+        <Link to={{ pathname: `/photo/${image.id}` }}>
+          <h1 className="font-semibold text-purple-500 hover:text-purple-800 text-md lg:text-xl mb-2 leading-tight">
+            Photo by {image.user}
+          </h1>
+        </Link>
+        <ul className="text-sm lg:text-md">
           <li><strong>Views: </strong>{image.views}</li>
           <li><strong>Downloads: </strong>{image.downloads}</li>
           <li><strong>Likes: </strong>{image.likes}</li>

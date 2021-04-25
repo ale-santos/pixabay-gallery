@@ -20,6 +20,31 @@ const PagePhotoSingle = () => {
     }
 
     useEffect(() => {
+        const hideMoreInfo = () => {
+            if (window.innerWidth >= 1024) {
+                setMoreInfoOpen(false);
+            } else {
+                console.log('entrei2');
+                setMoreInfoOpen(true);
+            }
+        };
+        window.addEventListener('resize', hideMoreInfo);
+
+        return () => {
+            window.removeEventListener('resize', hideMoreInfo);
+        };
+    },[]);
+
+    useEffect(() => {
+        if (window.innerWidth > 1024) {
+            console.log('entrei');
+            setMoreInfoOpen(false);
+        }else{
+            setMoreInfoOpen(true);
+        };
+    },[]);
+
+    useEffect(() => {
         const fetchPhoto = async () => {
             setIsLoading(true);
             await axios.get(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&id=${id}`)
@@ -69,7 +94,7 @@ const PagePhotoSingle = () => {
                                         <div className="px-4 py-5 sm:px-6">
                                             <h1 className="text-lg leading-6 font-medium text-gray-900"> Photo by {photoData.user}</h1>
                                         </div>
-                                        <div className="border-t border-gray-200">                                            
+                                        <div className="border-t border-gray-200">
                                             <button type="button" onClick={() => setMoreInfoOpen(!moreInfoOpen)}
                                                 className="px-5 py-3 rounded-md bg-gray-600 hover:bg-blue-700 text-white 
                                                 flex items-center text-center mx-4 mr-2 mb-2 lg:hidden ">
@@ -77,7 +102,7 @@ const PagePhotoSingle = () => {
                                                 {moreInfoOpen ? <FaChevronDown size={10} /> : <FaChevronUp size={10} />}
                                             </button>
                                             <dl>
-                                                <group className={`${!moreInfoOpen ? 'hidden' : 'block'}`}>
+                                                <div className={`${moreInfoOpen ? 'hidden' : 'block'}`}>
                                                     <div className="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                         <dt className="text-sm font-medium text-gray-500">Width:</dt>
                                                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{photoData.imageWidth} px</dd>
@@ -98,7 +123,7 @@ const PagePhotoSingle = () => {
                                                         <dt className="text-sm font-medium text-gray-500">Likes</dt>
                                                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{photoData.likes}</dd>
                                                     </div>
-                                                </group>
+                                                </div>
                                                 <div className="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt className="text-sm font-medium text-gray-500">Tags</dt>
                                                     <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

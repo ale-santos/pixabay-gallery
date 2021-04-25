@@ -36,10 +36,10 @@ export const PagePhoto = () => {
 
     return (
         <section className="pt-8">
-            <header className="max-w-7xl mx-auto pt-16 pb-4 lg:pb-8 lg:pt-0 px-6 lg:px-8">
+            <header className="max-w-7xl mx-auto pt-16 pb-4 lg:pb-8 lg:pt-0 px-3 lg:px-8">
                 <h1 className="w-full text-center text-2xl">PixaBay Photo Search</h1>
             </header>
-            <div className="max-w-7xl mx-auto pt-4 lg:pt-0 px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto pt-4 lg:pt-0 px-3 lg:px-8">
                 {isLoading ?
                     <Loading />
                     :
@@ -50,7 +50,7 @@ export const PagePhoto = () => {
                             searchMobileOpen={searchMobileOpen}
                             setSearchMobileOpen={() => setSearchMobileOpen(!searchMobileOpen)}
                             />
-                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-6 gap-y-10">
                             {images && images.map(image => (
                                 <ImageCard key={image.id} image={image} />
                             ))}
@@ -65,8 +65,8 @@ export const PagePhoto = () => {
                             breakLabel={"..."}
                             breakClassName={"break-me"}
                             pageCount={pageCount / search.perPage}
-                            marginPagesDisplayed={4}
-                            pageRangeDisplayed={3}
+                            marginPagesDisplayed={1 }
+                            pageRangeDisplayed={2}
                             onPageChange={handlePageClick}
                             containerClassName={"pagination"}
                             subContainerClassName={"pages pagination"}
