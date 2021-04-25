@@ -7,33 +7,36 @@ import PageContact from './pages/PageContact';
 import PagePhotoSingle from './pages/PagePhotoSingle';
 import { PageCart } from './pages/PageCart';
 import ScrollToTop from './components/ScrollToTop';
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 
 function App() {
     return (
-        <GlobalProvider>
-            <main className="bg-indigo-50 h-full">
-                <ScrollToTop />
-                <Navbar />
-                <Switch >
-                    <Route exact path={
-                        ["/", "/photos"]} >
-                        <PagePhoto />
-                    </Route>
-                    <Route path="/photo/:id">
-                        <PagePhotoSingle />
-                    </Route>
-                    <Route path="/videos" >
-                        <PageVideo />
-                    </Route>
-                    <Route path="/contato" >
-                        <PageContact />
-                    </Route>
-                    <Route path="/cart" >
-                        <PageCart />
-                    </Route>
-                </Switch>
-            </main>
-        </GlobalProvider>
+        <ToastProvider>
+            <GlobalProvider>
+                <main className="bg-indigo-50 h-full">
+                    <ScrollToTop />
+                    <Navbar />
+                    <Switch >
+                        <Route exact path={
+                            ["/", "/photos"]} >
+                            <PagePhoto />
+                        </Route>
+                        <Route path="/photo/:id">
+                            <PagePhotoSingle />
+                        </Route>
+                        <Route path="/videos" >
+                            <PageVideo />
+                        </Route>
+                        <Route path="/contato" >
+                            <PageContact />
+                        </Route>
+                        <Route path="/cart" >
+                            <PageCart />
+                        </Route>
+                    </Switch>
+                </main>
+            </GlobalProvider>
+        </ToastProvider>
     );
 }
 
