@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const ImageSearch = ({ search, searchForm, searchMobileOpen, setSearchMobileOpen }) => {
+export const ImageSearch = ({ search, searchForm, searchMobileOpen, setSearchMobileOpen }) => {
     const [text, setText] = useState(search.term);
     const [imageType, setImageType] = useState(search.imageType);
     const [category, setCategory] = useState(search.category);
@@ -103,5 +103,3 @@ const ImageSearch = ({ search, searchForm, searchMobileOpen, setSearchMobileOpen
         </div >
     )
 }
-
-export default ImageSearch;

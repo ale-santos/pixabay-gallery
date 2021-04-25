@@ -3,11 +3,11 @@ import { GlobalContext } from '../context/GlobaState';
 import axios from 'axios';
 
 import { ImageCard } from '../components/ImageCard';
-import ImageSearch from '../components/ImageSearch';
+import { ImageSearch } from '../components/ImageSearch';
 import Loading from '../components/Loading';
+import ReactPaginate from "react-paginate";
 
 import '../styles/pagination.css';
-import ReactPaginate from "react-paginate";
 
 export const PagePhoto = () => {
     const { search, setSearch, searchMobileOpen, setSearchMobileOpen } = useContext(GlobalContext);
@@ -49,8 +49,9 @@ export const PagePhoto = () => {
                             search={search}
                             searchMobileOpen={searchMobileOpen}
                             setSearchMobileOpen={() => setSearchMobileOpen(!searchMobileOpen)}
-                            />
-                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 lg:gap-x-6 gap-y-10">
+                        />
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+                                gap-x-4 lg:gap-x-6 gap-y-10">
                             {images && images.map(image => (
                                 <ImageCard key={image.id} image={image} />
                             ))}
@@ -65,7 +66,7 @@ export const PagePhoto = () => {
                             breakLabel={"..."}
                             breakClassName={"break-me"}
                             pageCount={pageCount / search.perPage}
-                            marginPagesDisplayed={1 }
+                            marginPagesDisplayed={1}
                             pageRangeDisplayed={2}
                             onPageChange={handlePageClick}
                             containerClassName={"pagination"}
